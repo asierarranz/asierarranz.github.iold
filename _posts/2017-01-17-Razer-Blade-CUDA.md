@@ -3,19 +3,21 @@ layout: post
 title: Ubuntu 16.04 on Razer Blade 2016 QHD 1060 GTX
 ---
 
-Disk Management -> Shrink volume, free 30-50Gb
-Download Ubuntu 16.04
-Flash it into an USB usuing Rufus
-Reboot & keep F1 pressed to enter BIOS
-Disable Secure Boot & Save
-Reboot & keep F12 pressed
-Select UEFI: (your externar_usb_name)
-Install Ubuntu
-Connect to wifi if you have
-Install Third Party & Download updates
-Choose manually partitioning (Something else)
-Select the new partition, check format, and add an Ext4 file system. Mount point: /
-We do it in this way to avoid the creation of a swap partition that could damage the SSD due to a high ratio of Writes/Reads. Discard that warning.
+The Razer Blade is the best small notebook for machine learning available in the market, so here you have the steps I have follow to deal with some of the issues that the standar Ubuntu installation has.
+
+- First, in Windows, go to Disk Management -> Shrink volume, and free around 30-50Gb
+- Download Ubuntu 16.04
+- Flash it into an USB using Rufus
+- Reboot & keep F1 pressed to enter BIOS
+- Disable Secure Boot & Save
+- Reboot & keep F12 pressed
+- Select UEFI: (your externar_usb_name)
+- Install Ubuntu
+- Connect to your wifi
+- Install Third Party & Download updates
+- Choose manually partitioning (Something else)
+- Select the new partition, check the format box, and add an Ext4 file system. Mount point: / We do it in this way to avoid the creation of a swap partition that could damage the SSD due to a high ratio of Writes/Reads. Discard that warning.
+
 -----------
 
 sudo apt update
@@ -52,7 +54,7 @@ Add these 2 lines at the end:
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ------
-INSTALL NVIDIA CUDA® Deep Neural Network library (cuDNN) 
+INSTALL NVIDIA CUDA® Deep Neural Network library (cuDNN)
 Go to: https://developer.nvidia.com/cudnn
 Download cuDNN v5.1 Library for Linux (could be newer versions to try when you read this)
 tar xvzf cudnn-8.0-linux-x64-v5.1.tgz
@@ -81,6 +83,36 @@ sudo apt-get install pulseaudio pavucontrol
 
 
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+
+
+
+
+
+
+
+
+
+
+
+Installing multiple deep learning frameworks in a single system is a dependency hell. Docker provides a solution to this issue.
+
+[Here](https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#docker-installation) is the instructions to install Tensorflow with Docker.
+
+There is a bug in the gcr.io/tensorflow/tensorflow:latest-gpu docker image: 
+
+>I tensorflow/stream_executor/dso_loader.cc:99] Couldn't open CUDA library libcudnn.so. LD_LIBRARY_PATH: /usr/local/nvidia/lib:/usr/local/nvidia/lib64:
+>
+>I tensorflow/stream_executor/cuda/cuda_dnn.cc:1562] Unable to load cuDNN DSO
+
+The solution is to excute this command in Docker instance:
+
+```bash
+ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so.4 /usr/lib/x86_64-linux-gnu/libcudnn.so
+```
+
+For devel verison, the following instructions are needed:
+
+```bash
+export LD_LIBRARY_PATH=/usr/local/nvidia/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+```
