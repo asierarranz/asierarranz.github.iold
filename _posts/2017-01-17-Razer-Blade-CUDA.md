@@ -3,7 +3,11 @@ layout: post
 title: Ubuntu 16.04 on Razer Blade 2016 QHD 1060 GTX
 ---
 
-The Razer Blade is the best small notebook for machine learning available in the market, so here you have the steps I have follow to deal with some of the issues that the standar Ubuntu installation has.
+The Razer Blade is the best small notebook for machine learning available in the market, so here you have the steps I have follow to deal with some of the issues that the standard Ubuntu installation has.
+
+---
+
+### Installing Ubuntu from Windows
 
 - First, in Windows, go to Disk Management -> Shrink volume, and free around 30-50Gb
 - Download Ubuntu 16.04
@@ -20,10 +24,14 @@ The Razer Blade is the best small notebook for machine learning available in the
 
 -----------
 
+### Configuring Ubuntu 16.04
+
+```bash
 sudo apt update
 sudo apt-upgrade
+```
 Could be a warning from the last kernel that is not supporting the intel i915 firmware if that enter here:
-https://01.org/linuxgraphics/intel-linux-graphics-firmwares
+[Linux Intel Firmwares](https://01.org/linuxgraphics/intel-linux-graphics-firmwares)
 1.Download the Skylake GUC v6 if it has a tar_x file, rename it to .tar, extract the folder and run sudo bash ./install.sh --install
 reboot
 2.Download the Kabylake DMC v1 if it has a tar_x file, rename it to .tar, extract the folder and run sudo sh install.sh
