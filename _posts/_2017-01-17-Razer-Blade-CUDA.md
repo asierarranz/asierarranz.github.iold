@@ -20,7 +20,8 @@ The Razer Blade is the best small notebook for machine learning available in the
 - Connect to your wifi
 - Install Third Party & Download updates
 - Choose manually partitioning (Something else)
-- Select the new partition, check the format box, and add an Ext4 file system. Mount point: / We do it in this way to avoid the creation of a swap partition that could damage the SSD due to a high ratio of Writes/Reads. Discard that warning.
+- Select the new partition, check the format box, and add an Ext4 file system. Mount point: / 
+We do it in this way to avoid the creation of a swap partition that could damage the SSD due to a high ratio of Writes/Reads. Discard that warning.
 
 -----------
 
@@ -30,8 +31,9 @@ The Razer Blade is the best small notebook for machine learning available in the
 sudo apt update
 sudo apt upgrade
 ```
-Could be a warning from the last kernel that is not supporting the intel i915 firmware if that enter here:
+Could be a warning from the last kernel that is not supporting the intel i915 firmware, if that happens, enter here:
 <https://01.org/linuxgraphics/intel-linux-graphics-firmwares>
+
 1. Download the *Skylake GUC v6* if it has a tar_x file, rename it to .tar, extract the folder and run:
  
 ```bash
@@ -48,8 +50,11 @@ sudo reboot
 
 #### Keyboard
 
-If the keyboard is not working, try rebooting multiple times from Windows in different ways, (or use the on-screen keyboard in the top right menu) it is a power issue that can be solved editing /etc/rc.local and adding this line before exit 0
+If the keyboard is not working, try rebooting multiple times from Windows in different ways, (or use the on-screen keyboard in the top right menu) it is a power issue that can be solved editing /etc/rc.local and adding this line before exit 0:
+
+```bash
 echo -1 /sys/bus/usb/devices/3-1/power/autosuspend_delay_ms
+```
 if the keyboard is still failing try to enable the compatibility settings, like xHCI, into the BIOS (Pressing F1 during power-on)
 
 #### External Bluetooth mouse
@@ -72,7 +77,7 @@ I prefer to install Cinnamon Desktop due to its better support for high-DPI disp
 sudo add-apt-repository ppa:embrosyn/cinnamon
 sudo apt update && sudo apt install cinnamon
 ```
-Log-off and re-login clicking on the ubuntu logo next to your username, select Cinnamon.
+Log-off and re-login clicking in the ubuntu logo next to your username, select Cinnamon.
 
 #### Sound
 
@@ -92,8 +97,8 @@ This is for the 8.0.44-1 version, the process should be similar for future versi
 ```bash
 wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
-sudo apt-get update (here you could get an "Invalid Date" warning, you can ignore it)
-sudo apt-get install cuda (Wait, around 2Gb will be downloaded)
+sudo apt-get update # (here you could get an "Invalid Date" warning, you can ignore it)
+sudo apt-get install cuda # (Wait, around 2Gb will be downloaded)
 gedit .bashrc
 ```
 Add these 2 lines at the end:
@@ -106,8 +111,8 @@ export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 ------
 
 ### Install nVidia CUDA® Deep Neural Network library (cuDNN)
-- Go to: https://developer.nvidia.com/cudnn
-- Download cuDNN v5.1 Library for Linux (could be newer versions to try when you read this)
+- Go to: <https://developer.nvidia.com/cudnn>
+- Download cuDNN v5.1 Library for Linux (could be newer versions when you read this)
 
 ```bash
 tar xvzf cudnn-8.0-linux-x64-v5.1.tgz
