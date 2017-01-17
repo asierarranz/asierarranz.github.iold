@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Ubuntu 16.04 + CUDA + cuDNN on a 13" GTX1060 QHD Razer Blade
 ---
 
