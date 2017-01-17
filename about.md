@@ -27,4 +27,4 @@ I like to contribute to science projects, like Malariaspot, a project I develope
 
 ### Contact me
 
-[email@domain.com](mailto:asierarranz@gmail.com)
+[asierarranz@gmail.com](mailto:asierarranz@gmail.com)
