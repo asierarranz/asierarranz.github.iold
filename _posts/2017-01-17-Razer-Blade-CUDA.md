@@ -36,13 +36,13 @@ Could be a warning from the last kernel that is not supporting the intel i915 fi
 ```bash
 sudo bash ./install.sh --install
 sudo reboot
-´´´
+```
 
 2. Download the *Kabylake DMC v1* if it has a tar_x file, rename it to .tar, extract the folder and run:
 ```bash
 sudo sh install.sh
 sudo reboot
-´´´
+```
 
 #### Keyboard
 
@@ -57,7 +57,7 @@ If you need an external bluetooth mouse and it is not working when it is connect
 sudo hciconfig hci0 sspmode 1
 sudo hciconfig hci0 down
 sudo hciconfig hci0 up
-´´´
+```
 And connect-disconnect until it works. After that it will work like a charm forever :-)
 
 
@@ -67,7 +67,7 @@ I prefer to install Cinnamon Desktop due to its better support for high-DPI disp
 ```bash
 sudo add-apt-repository ppa:embrosyn/cinnamon
 sudo apt update && sudo apt install cinnamon
-´´´
+```
 Log-off and re-login clicking on the ubuntu logo next to your username, select Cinnamon.
 
 #### Sound
@@ -76,7 +76,7 @@ If like to me, the sound is not working:
 ```bash
 sudo apt-get install pulseaudio pavucontrol
 sudo reboot
-´´´
+```
 
 -----------------------
 
@@ -89,12 +89,12 @@ sudo dpkg -i cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
 sudo apt-get update (here you could get an "Invalid Date" warning, you can ignore it)
 sudo apt-get install cuda (Wait, around 2Gb will be downloaded)
 gedit .bashrc
-´´´
+```
 Add these 2 lines at the end:
 ```bash
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-´´´
+```
 
 ------
 
@@ -106,7 +106,7 @@ tar xvzf cudnn-8.0-linux-x64-v5.1.tgz
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
-´´´
+```
 
 ----
 
@@ -118,7 +118,7 @@ nvidia-smi
 cd /usr/local/cuda/samples/5_Simulations/nbody
 sudo make
 ./nbody -benchmark -numbodies=256000 -device=0
-´´´
+```
 
 -----
 
