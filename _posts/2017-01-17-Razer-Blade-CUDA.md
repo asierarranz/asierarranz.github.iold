@@ -32,7 +32,8 @@ sudo apt upgrade
 ```
 Could be a warning from the last kernel that is not supporting the intel i915 firmware if that enter here:
 <https://01.org/linuxgraphics/intel-linux-graphics-firmwares>
-1. Download the *Skylake GUC v6* if it has a tar_x file, rename it to .tar, extract the folder and run: 
+1. Download the *Skylake GUC v6* if it has a tar_x file, rename it to .tar, extract the folder and run:
+ 
 ```bash
 sudo bash ./install.sh --install
 sudo reboot
