@@ -4,7 +4,6 @@ title: Ubuntu 16.04 + CUDA + cuDNN on a 13" GTX1060 QHD Razer Blade
 ---
 
 ![alt text](https://asierarranz.github.io/images/cuDNNblade.jpg "Ubuntu 16.04 + CUDA + cuDNN on a 13" GTX1060 QHD Razer Blade")
-
 Probably the Razer Blade is the best small notebook for machine learning available in the market right now. So here you have the steps I have followed to deal with some of the issues that the standard Ubuntu installation has.
 
 ---
