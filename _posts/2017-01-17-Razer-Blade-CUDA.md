@@ -40,6 +40,7 @@ sudo reboot
 ```
 
 2. Download the *Kabylake DMC v1* if it has a tar_x file, rename it to .tar, extract the folder and run:
+
 ```bash
 sudo sh install.sh
 sudo reboot
@@ -54,6 +55,7 @@ if the keyboard is still failing try to enable the compatibility settings, like 
 #### External Bluetooth mouse
 
 If you need an external bluetooth mouse and it is not working when it is connected:
+
 ```bash
 sudo hciconfig hci0 sspmode 1
 sudo hciconfig hci0 down
@@ -65,6 +67,7 @@ And connect-disconnect until it works. After that it will work like a charm fore
 #### Cinnamon Desktop
 
 I prefer to install Cinnamon Desktop due to its better support for high-DPI displays, and I think it looks much better than the standard Unity!
+
 ```bash
 sudo add-apt-repository ppa:embrosyn/cinnamon
 sudo apt update && sudo apt install cinnamon
@@ -74,6 +77,7 @@ Log-off and re-login clicking on the ubuntu logo next to your username, select C
 #### Sound
 
 If like to me, the sound is not working:
+
 ```bash
 sudo apt-get install pulseaudio pavucontrol
 sudo reboot
@@ -84,6 +88,7 @@ sudo reboot
 ### Install CUDA
 
 This is for the 8.0.44-1 version, the process should be similar for future versions by replacing the url.
+
 ```bash
 wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
@@ -92,6 +97,7 @@ sudo apt-get install cuda (Wait, around 2Gb will be downloaded)
 gedit .bashrc
 ```
 Add these 2 lines at the end:
+
 ```bash
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
@@ -102,6 +108,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 ### Install nVidia CUDA® Deep Neural Network library (cuDNN)
 - Go to: https://developer.nvidia.com/cudnn
 - Download cuDNN v5.1 Library for Linux (could be newer versions to try when you read this)
+
 ```bash
 tar xvzf cudnn-8.0-linux-x64-v5.1.tgz
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
@@ -114,6 +121,7 @@ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ### Test CUDA!
 
 Now you can check the details about the card and test the installation:
+
 ```bash
 nvidia-smi
 cd /usr/local/cuda/samples/5_Simulations/nbody
